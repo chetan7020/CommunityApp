@@ -18,4 +18,11 @@
     <string name="write_post">Write Post</string>
     <string name="choose_department">Choose Department</string>
     <string name="write_a_post">Write a Post</string>
+    <string name="automobile_department">Automobile Department</string>
+    <string name="civil_department">Civil Department</string>
+    <string name="computer_department">Computer Department</string>
+    <string name="electrical_department">Electrical Department</string>
+    <string name="electronics_department">Electronics Department</string>
+    <string name="information_tech_department">Information Tech. Department</string>
+    <string name="mechanical_department">Mechanical Department</string>
 </resources>
