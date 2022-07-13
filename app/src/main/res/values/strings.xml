@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CommunityApp</string>
+    <string name="openDrawer">Open Navigation Drawer</string>
+    <string name="closeDrawer">Close Navigation Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="learn_by_making_solid_connection">Learn by making solid connection</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="survey_form">Survey Form</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_age_optional">Enter your age (Optional)</string>
+    <string name="would_you_recommend_gpa_connect_to_a_friend">Would you recommend GPA connect to a friend?</string>
+    <string name="definitely">Definitely</string>
+    <string name="may_be">May be</string>
+    <string name="not_sure">Not sure</string>
+    <string name="what_is_your_favourite_feature_of_gpa_connect">What is your favourite feature of GPA connect?</string>
+    <string name="what_would_you_like_to_see_improved">What would you like to see improved?</string>
+    <string name="write_post">Write Post</string>
+    <string name="choose_department">Choose Department</string>
+    <string name="write_a_post">Write a Post</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/defaultHome"
+        android:title="Home"
+        android:icon="@drawable/home"
+        />
+    <item
+        android:id="@+id/deptCO"
+        android:title="Computer"
+        android:icon="@drawable/co"
+        />
+    <item
+        android:id="@+id/deptEJ"
+        android:icon="@drawable/ej"
+        android:title="Electronics"
+        />
+    <item
+        android:id="@+id/deptEE"
+        android:icon="@drawable/ee"
+        android:title="Electrical" />
+    <item
+        android:id="@+id/deptIF"
+        android:icon="@drawable/it"
+        android:title="Information Tech" />
+    <item
+        android:id="@+id/deptCE"
+        android:icon="@drawable/ce"
+        android:title="Civil" />
+    <item
+        android:id="@+id/deptME"
+        android:icon="@drawable/me"
+        android:title="Mechanical" />
+    <item
+        android:id="@+id/deptAE"
+        android:icon="@drawable/ae"
+        android:title="Automobile" />
+
+</menu>
