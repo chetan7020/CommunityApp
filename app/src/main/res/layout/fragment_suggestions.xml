@@ -19,7 +19,7 @@
                 android:background="@drawable/cell_shape"
                 android:gravity="start"
                 android:padding="7dp"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -29,7 +29,7 @@
                 android:background="@drawable/cell_shape"
                 android:gravity="start"
                 android:padding="7dp"
-                android:text="They like"
+                android:text="@string/they_like"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -39,7 +39,7 @@
                 android:background="@drawable/cell_shape"
                 android:gravity="start"
                 android:padding="7dp"
-                android:text="This must be improved"
+                android:text="@string/this_must_be_improved"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -49,7 +49,7 @@
                 android:background="@drawable/cell_shape"
                 android:gravity="start"
                 android:padding="7dp"
-                android:text="Other Comments"
+                android:text="@string/other_comments"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -59,7 +59,7 @@
                 android:background="@drawable/cell_shape"
                 android:gravity="start"
                 android:padding="7dp"
-                android:text="Reply"
+                android:text="@string/reply"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </TableRow>

@@ -10,33 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CommunityApp">
         <activity
-            android:name=".post.WritePostActivity"
+            android:name=".admin.AdminActivity"
             android:exported="false">
 
         </activity>
         <activity
-            android:name=".admin.AdminActivity"
-            android:exported="false" />
-        <activity
             android:name=".SurveyActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".logs.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DummyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".DummyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="false" />
         <activity
             android:name=".logs.SignInActivity"
             android:exported="false" />

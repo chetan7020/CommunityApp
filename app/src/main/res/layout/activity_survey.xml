@@ -86,7 +86,9 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            >
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -130,22 +132,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingEnd="0dp"
             android:paddingStart="20dp">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Design" />
+                android:text="@string/design" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Speed" />
+                android:text="@string/speed" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ask questions" />
+                android:text="@string/ask_questions" />
 
         </LinearLayout>
 
@@ -154,7 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Submit" />
+            android:text="@string/submit" />
 
     </LinearLayout>
 

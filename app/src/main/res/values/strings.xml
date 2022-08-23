@@ -2,7 +2,6 @@
     <string name="app_name">CommunityApp</string>
     <string name="openDrawer">Open Navigation Drawer</string>
     <string name="closeDrawer">Close Navigation Drawer</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="learn_by_making_solid_connection">Learn by making solid connection</string>
     <string name="enter_your_name">Enter your name</string>
@@ -25,4 +24,37 @@
     <string name="electronics_department">Electronics Department</string>
     <string name="information_tech_department">Information Tech. Department</string>
     <string name="mechanical_department">Mechanical Department</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="create_password">Create password</string>
+    <string name="header">Header</string>
+    <string name="codiz_01">CODIZ_01</string>
+    <string name="name">Name</string>
+    <string name="they_like">They like</string>
+    <string name="this_must_be_improved">This must be improved</string>
+    <string name="other_comments">Other Comments</string>
+    <string name="reply">Reply</string>
+    <string name="head">Head</string>
+    <string name="view_link">View link</string>
+    <string name="delete_link">Delete link</string>
+    <string name="un_report_link">Un-report link</string>
+    <string name="recent_posts">Recent Posts</string>
+    <string name="enter_your_header">Enter your header</string>
+    <string name="enter_tags">Enter tags</string>
+    <string name="submit">Submit</string>
+    <string name="ask_questions">Ask questions</string>
+    <string name="speed">Speed</string>
+    <string name="design">Design</string>
+    <string name="dummy">dummy</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="hello_world">Hello World</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="report_bug">Report Bug</string>
+    <string name="authorized">Authorized</string>
+    <string name="new_to_codiz">New to Codiz?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_user">Already Registered?</string>
+    <string name="forget">Forget?</string>
 </resources>

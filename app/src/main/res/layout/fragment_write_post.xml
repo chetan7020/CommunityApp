@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".post.WritePostActivity">
+    tools:context=".post.WritePostFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,12 +15,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bungee"
+            android:fontFamily="@font/allerta"
             android:text="@string/write_a_post"
             android:textColor="@color/black"
             android:textSize="35sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etHeader"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,11 +30,12 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Enter your header"
+                android:hint="@string/enter_your_header"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etDepartment"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +49,25 @@
                 android:text="@string/choose_department" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <ImageView
+            android:id="@+id/ivImagePreview"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/dummy"
+            android:layout_marginTop="20dp"
+            />
+
+        <Button
+            android:id="@+id/btnImagePreview"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="Choose Image"
+            android:textAllCaps="false" />
+
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etDescription"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,11 +75,18 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Enter tags"
+                android:layout_height="wrap_content"
+                android:hint="Detailed Description"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:id="@+id/btnCreatePost"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="Create Post"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 </ScrollView>

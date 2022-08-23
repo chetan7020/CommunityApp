@@ -18,19 +18,12 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <include
-            layout="@layout/highlight_post_layout"
+        <LinearLayout
+            android:id="@+id/linear_layout_mechanical_dept"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
 
-        <include
-            layout="@layout/highlight_post_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
     </LinearLayout>
 
 </ScrollView>

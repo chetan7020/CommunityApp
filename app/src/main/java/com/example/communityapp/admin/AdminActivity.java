@@ -3,9 +3,7 @@ package com.example.communityapp.admin;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
-
 import com.example.communityapp.R;
 import com.example.communityapp.adapter.AdminTabAdapter;
 import com.google.android.material.tabs.TabLayout;

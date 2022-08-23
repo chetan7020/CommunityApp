@@ -1,7 +1,6 @@
 package com.example.communityapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class SurveyActivity extends AppCompatActivity {

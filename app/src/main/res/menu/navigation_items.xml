@@ -37,5 +37,13 @@
         android:id="@+id/deptAE"
         android:icon="@drawable/ae"
         android:title="Automobile" />
+    <item
+        android:id="@+id/writePost"
+        android:icon="@drawable/write_post"
+        android:title="Write Post" />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/logout"
+        android:title="Logout" />
 
 </menu>

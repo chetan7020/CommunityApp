@@ -1,23 +1,28 @@
-package com.example.communityapp.admin;
+package com.example.communityapp.post;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.communityapp.R;
 
-public class ReportBugFragment extends Fragment {
+public class DetailedPostFragment extends Fragment {
 
-    public ReportBugFragment() {
+    View view ;
+
+    public DetailedPostFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_report_bug, container, false);
+        view = inflater.inflate(R.layout.post_layout, container, false);
 
         return view ;
+
     }
+
 }
