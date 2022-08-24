@@ -22,6 +22,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ivLogo = findViewById(R.id.ivLogo);
+        auth = FirebaseAuth.getInstance() ;
         rotateAnimation();
     }
 
@@ -32,9 +33,16 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                startActivity(new Intent(SplashActivity.this, SignInActivity.class));
-                finish();
+                FirebaseUser user = auth.getCurrentUser() ;
+                if (user != null){
+                    startActivity(new Intent(SplashActivity.this , HomeActivity.class));
+                } else {
+                    startActivity(new Intent(SplashActivity.this, SignInActivity.class));
+                }
+                finish() ;
             }
         }, 2515);
+
+
     }
 }

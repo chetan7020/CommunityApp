@@ -17,6 +17,9 @@ public class DefaultFragment extends Fragment {
 
     public DefaultFragment() {
     }
+
+    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

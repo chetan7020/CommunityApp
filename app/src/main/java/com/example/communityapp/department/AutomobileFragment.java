@@ -47,7 +47,6 @@ public class AutomobileFragment extends Fragment {
         fragmentTransaction.commit();
     }
 
-
     private void addPost(String header) {
 
         View highlightPostView = getLayoutInflater().inflate(R.layout.highlight_post_layout , null , false) ;

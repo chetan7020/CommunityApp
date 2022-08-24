@@ -96,6 +96,7 @@ public class HomeActivity extends AppCompatActivity {
             }else if(id == R.id.logout) {
                 auth.signOut();
                 startActivity(new Intent(HomeActivity.this , SignInActivity.class));
+                finish() ;
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
@@ -109,14 +110,6 @@ public class HomeActivity extends AppCompatActivity {
         }else{
             super.onBackPressed();
         }
-
-        if (backPressed + 2000 > System.currentTimeMillis()){
-            super.onBackPressed();
-            return;
-        }else{
-            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
-        }
-        backPressed = System.currentTimeMillis();
     }
 
     private void loadFrag(Fragment fragment) {

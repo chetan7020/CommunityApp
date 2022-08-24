@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -46,36 +47,15 @@ public class SignUpActivity extends AppCompatActivity {
 
         initialized() ;
 
-        tvSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn() ;
-            }
-        });
+        tvSignIn.setOnClickListener(view -> signIn());
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signUp() ;
-            }
-        });
+        btnSignUp.setOnClickListener(view -> signUp());
 
-//        etFullName.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                etFullName.setError(null) ;
-//                etFullName.clearFocus() ;
-//            }
-//        });
     }
 
-
-
     private void signUp() {
-//        startActivity(new Intent(getApplicationContext() , HomeActivity.class));
-//        finish();
 
-        String email , createPass , confirmPass , phoneNumber , fullName = "" ;
+        String email , createPass , confirmPass , phoneNumber , fullName ;
 
         fullName = etFullName.getEditText().getText().toString().trim() ;
         email = etEmail.getEditText().getText().toString().trim() ;
@@ -87,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
                 email.equals("") ||
                 createPass.equals("") ||
                 confirmPass.equals("") ||
-                phoneNumber.equals("") ){
+                phoneNumber.equals("") ) {
 
             if (fullName.equals("")) {
                 etFullName.setError("*Required");
@@ -127,25 +107,28 @@ public class SignUpActivity extends AppCompatActivity {
         }else {
             if (createPass.equals(confirmPass)) {
                 auth.createUserWithEmailAndPassword(email, createPass)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    makeToast("Successfully Registered");
-                                    startActivity(new Intent(SignUpActivity.this , HomeActivity.class));
-                                } else {
-                                    makeToast("Failed to Registered");
-                                }
+                        .addOnCompleteListener(this, task -> {
+
+                            if (task.isSuccessful()) {
+                                makeToast("Successfully Registered");
+                                startActivity(new Intent(SignUpActivity.this , HomeActivity.class));
+                            } else {
+                                auth.fetchSignInMethodsForEmail(email)
+                                        .addOnCompleteListener(task1 -> {
+                                            boolean isNewUser = task1.getResult().getSignInMethods().isEmpty();
+                                            if (!isNewUser) {
+                                                makeToast("Email id already taken");
+                                            }
+                                        });
                             }
+
                         });
+
             } else {
+
                 makeToast("Password Mismatched");
             }
         }
-
-
-
-
     }
 
     private void makeToast(String msg) {

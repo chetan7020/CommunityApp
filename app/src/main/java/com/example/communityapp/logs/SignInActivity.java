@@ -15,7 +15,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -33,19 +32,6 @@ public class SignInActivity extends AppCompatActivity {
         etPass = findViewById(R.id.etPass) ;
 
         auth = FirebaseAuth.getInstance() ;
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        FirebaseUser user = auth.getCurrentUser() ;
-
-        if (user != null){
-            startActivity(new Intent(SignInActivity.this , HomeActivity.class));
-        }
-
     }
 
 
@@ -65,13 +51,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void forgetPass() {
-        showToast("Yet to build");
+        makeToast("Yet to build");
     }
-
-    private void showToast(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
 
 
     private void signIn(){
@@ -104,21 +85,22 @@ public class SignInActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 makeToast("Successfully Login");
                                 startActivity(new Intent(SignInActivity.this , HomeActivity.class));
+                                finish() ;
                             } else {
                                 makeToast("Failed to Login");
                             }
                         }
                     });
-        }
+            }
 
-    }
+        }
 
     private void makeToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     private void signUp(){
-        startActivity(new Intent(getApplicationContext() , SignUpActivity.class));
+        startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
         finish();
     }
 }
