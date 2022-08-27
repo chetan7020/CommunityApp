@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/svYourPost"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".post.YourPostFragment">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,25 +14,24 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+<!--        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--            android:id="@+id/srlRefresh"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp">-->
+<!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
         <TextView
-            android:id="@+id/tvHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Your Posts"
             android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textSize="40sp" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_margin="30dp"
-            android:src="@drawable/dummy" />
-
-        <TextView
-            android:id="@+id/tvDescription"
+        <LinearLayout
+            android:id="@+id/linear_layout_your_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:orientation="vertical" />
 
     </LinearLayout>
 

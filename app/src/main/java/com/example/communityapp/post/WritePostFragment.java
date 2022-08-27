@@ -41,7 +41,7 @@ public class WritePostFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore ;
     private FirebaseUser firebaseUser ;
 
-    private void initialized() {
+    private void initialize() {
         actvDepartment = view.findViewById(R.id.dept_spinner);
         ivImagePreview = view.findViewById(R.id.ivImagePreview);
         btnImagePreview = view.findViewById(R.id.btnImagePreview);
@@ -65,7 +65,7 @@ public class WritePostFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_write_post, container, false);
 
-        initialized();
+        initialize();
 
 
         spinnerSettings();
@@ -132,11 +132,13 @@ public class WritePostFragment extends Fragment {
 
             Map<String , Object> data = new HashMap<>() ;
 
+            data.put("email" , user) ;
             data.put("header" , header) ;
             data.put("department" , department) ;
             data.put("description" , description) ;
 
-            firebaseFirestore.collection(user).add(data)
+            firebaseFirestore.collection("post")
+                    .add(data)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {

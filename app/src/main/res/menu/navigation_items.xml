@@ -1,49 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item
         android:id="@+id/defaultHome"
-        android:title="Home"
+        android:title="@string/home"
         android:icon="@drawable/home"
         />
     <item
         android:id="@+id/deptCO"
-        android:title="Computer"
+        android:title="@string/computer"
         android:icon="@drawable/co"
         />
     <item
         android:id="@+id/deptEJ"
         android:icon="@drawable/ej"
-        android:title="Electronics"
+        android:title="@string/electronics"
         />
     <item
         android:id="@+id/deptEE"
         android:icon="@drawable/ee"
-        android:title="Electrical" />
+        android:title="@string/electrical" />
     <item
         android:id="@+id/deptIF"
         android:icon="@drawable/it"
-        android:title="Information Tech" />
+        android:title="@string/information_tech" />
     <item
         android:id="@+id/deptCE"
         android:icon="@drawable/ce"
-        android:title="Civil" />
+        android:title="@string/civil" />
     <item
         android:id="@+id/deptME"
         android:icon="@drawable/me"
-        android:title="Mechanical" />
+        android:title="@string/mechanical" />
     <item
         android:id="@+id/deptAE"
         android:icon="@drawable/ae"
-        android:title="Automobile" />
+        android:title="@string/automobile" />
     <item
         android:id="@+id/writePost"
         android:icon="@drawable/write_post"
-        android:title="Write Post" />
+        android:title="@string/write_post" />
+    <item
+        android:id="@+id/yourPost"
+        android:icon="@drawable/your_post"
+        android:title="@string/your_post" />
     <item
         android:id="@+id/logout"
         android:icon="@drawable/logout"
-        android:title="Logout" />
+        android:title="@string/logout" />
 
 </menu>

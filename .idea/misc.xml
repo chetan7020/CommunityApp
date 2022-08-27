@@ -18,10 +18,12 @@
         <entry key="..\:/CommunityApp/app/src/main/res/layout/activity_sign_up.xml" value="0.15462962962962962" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/activity_splash.xml" value="0.22" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/activity_survey.xml" value="0.16342592592592592" />
+        <entry key="..\:/CommunityApp/app/src/main/res/layout/activity_verify_email.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/activity_write_post.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/app_bar.xml" value="0.11145833333333334" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/content_home.xml" value="0.11145833333333334" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/content_main.xml" value="0.11145833333333334" />
+        <entry key="..\:/CommunityApp/app/src/main/res/layout/delete.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/fragment_admin.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/fragment_authorozed.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/fragment_automobile.xml" value="0.18385416666666668" />
@@ -35,11 +37,13 @@
         <entry key="..\:/CommunityApp/app/src/main/res/layout/fragment_report_bug.xml" value="0.1" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/fragment_suggestions.xml" value="0.1" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/fragment_write_post.xml" value="0.18385416666666668" />
+        <entry key="..\:/CommunityApp/app/src/main/res/layout/fragment_your_post.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/header_layout.xml" value="0.22" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/highlight_post_layout.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/highlightpost_layout.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/navheader.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/layout/post_layout.xml" value="0.18385416666666668" />
+        <entry key="..\:/CommunityApp/app/src/main/res/layout/refresh_layout.xml" value="0.1828125" />
         <entry key="..\:/CommunityApp/app/src/main/res/menu/iconmenu.xml" value="0.18385416666666668" />
         <entry key="..\:/CommunityApp/app/src/main/res/menu/navigation_items.xml" value="0.14814814814814814" />
       </map>

@@ -57,4 +57,15 @@
     <string name="sign_up">Sign Up</string>
     <string name="already_user">Already Registered?</string>
     <string name="forget">Forget?</string>
+    <string name="your_post">Your Post</string>
+    <string name="logout">Logout</string>
+    <string name="automobile">Automobile</string>
+    <string name="mechanical">Mechanical</string>
+    <string name="civil">Civil</string>
+    <string name="information_tech">Information Tech</string>
+    <string name="electrical">Electrical</string>
+    <string name="electronics">Electronics</string>
+    <string name="computer">Computer</string>
+    <string name="home">Home</string>
+    <string name="verify_email_msg">Please verify email sent on your email !!! and click verify button</string>
 </resources>

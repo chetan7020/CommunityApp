@@ -2,9 +2,7 @@ package com.example.communityapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,16 +14,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import com.example.communityapp.department.AutomobileFragment;
-import com.example.communityapp.department.CivilFragment;
-import com.example.communityapp.department.ComputerFragment;
-import com.example.communityapp.department.DefaultFragment;
-import com.example.communityapp.department.ElectricalFragment;
-import com.example.communityapp.department.ElectronicsFragment;
-import com.example.communityapp.department.InformationFragment;
-import com.example.communityapp.department.MechanicalFragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.example.communityapp.department.* ;
 import com.example.communityapp.logs.SignInActivity;
-import com.example.communityapp.post.WritePostFragment;
+import com.example.communityapp.post.* ;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,16 +28,15 @@ public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
-    private long backPressed ;
-    private View headerView ;
-    private TextView tvUserName ;
-    private FirebaseUser firebaseUser ;
-    private FirebaseAuth auth ;
+    private View headerView;
+    private TextView tvUserName;
+    private FirebaseUser firebaseUser;
+    private FirebaseAuth auth;
 
     private void initialize() {
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigationView);
-        toolbar = findViewById(R.id.tool_bar);
+        drawerLayout = findViewById(R.id.drawer_layout) ;
+        navigationView = findViewById(R.id.navigationView) ;
+        toolbar = findViewById(R.id.tool_bar) ;
         headerView = navigationView.getHeaderView(0) ;
         tvUserName = headerView.findViewById(R.id.tvUserName) ;
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
@@ -89,25 +81,31 @@ public class HomeActivity extends AppCompatActivity {
                 loadFrag(new CivilFragment());
             } else if (id == R.id.deptAE) {
                 loadFrag(new AutomobileFragment());
-            } else if(id == R.id.defaultHome) {
+            } else if (id == R.id.defaultHome) {
                 loadFrag(new DefaultFragment());
-            }else if(id == R.id.writePost) {
+            } else if (id == R.id.writePost) {
                 loadFrag(new WritePostFragment());
-            }else if(id == R.id.logout) {
+            } else if (id == R.id.yourPost) {
+                loadFrag(new YourPostFragment());
+            } else if (id == R.id.logout) {
                 auth.signOut();
-                startActivity(new Intent(HomeActivity.this , SignInActivity.class));
-                finish() ;
+                startActivity(new Intent(HomeActivity.this, SignInActivity.class));
+                finish();
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
     }
 
+    private void makeToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
@@ -119,7 +117,6 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-
 
 
 }
