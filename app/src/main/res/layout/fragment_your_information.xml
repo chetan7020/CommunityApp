@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
     android:gravity="center"
+    android:background="@color/bg1"
     android:orientation="vertical"
     android:padding="15dp"
     tools:context=".my_account.YourInformationFragment">
@@ -16,13 +16,14 @@
         android:layout_marginTop="-40dp"
         android:fontFamily="@font/allerta"
         android:text="Your Information"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
+        app:cardBackgroundColor="@color/cardBg1"
         app:cardCornerRadius="10dp">
 
         <TextView
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/antic"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
     </androidx.cardview.widget.CardView>
@@ -39,6 +40,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        app:cardBackgroundColor="@color/cardBg2"
         android:layout_marginTop="30dp"
         app:cardCornerRadius="10dp">
 
@@ -48,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/antic"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
     </androidx.cardview.widget.CardView>
@@ -56,6 +58,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        app:cardBackgroundColor="@color/cardBg3"
         android:layout_marginTop="30dp"
         app:cardCornerRadius="10dp">
 
@@ -65,13 +68,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/antic"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+        app:cardBackgroundColor="@color/cardBg4"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         app:cardCornerRadius="10dp">
@@ -83,7 +87,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/antic"
             android:text="Total Post : Coming Soon"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
     </androidx.cardview.widget.CardView>

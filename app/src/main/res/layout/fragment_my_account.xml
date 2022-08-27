@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
     android:padding="15dp"
+    android:background="@color/bg1"
     tools:context=".my_account.MyAccountFragment">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_marginBottom="50dp"
             android:fontFamily="@font/antic"
             android:text="chetandagajipatil333@gmail.com"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="25sp" />
 
         <LinearLayout
@@ -34,6 +34,7 @@
                 android:id="@+id/cvYourInformation"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                app:cardBackgroundColor="@color/cardBg1"
                 android:layout_gravity="center_vertical"
                 app:cardCornerRadius="10dp">
 
@@ -45,7 +46,7 @@
                     android:drawableLeft="@drawable/your_acc"
                     android:padding="10dp"
                     android:text="Your Information"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -60,6 +61,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvChangeEmail"
                 android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/cardBg2"
                 android:layout_height="70dp"
                 android:layout_marginTop="20dp"
                 app:cardCornerRadius="10dp">
@@ -72,7 +74,7 @@
                     android:drawableLeft="@drawable/change_email"
                     android:padding="10dp"
                     android:text="Change Email"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -87,7 +89,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvVerifyEmail"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                app:cardBackgroundColor="@color/cardBg3"
+                android:layout_height="80dp"
                 android:layout_marginTop="20dp"
                 app:cardCornerRadius="10dp">
 
@@ -99,7 +102,8 @@
                     android:drawableLeft="@drawable/verify"
                     android:padding="10dp"
                     android:text="Verify Email"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -122,6 +126,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvChangePassword"
                 android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/cardBg4"
                 android:layout_height="70dp"
                 android:layout_marginTop="20dp"
                 app:cardCornerRadius="10dp">
@@ -134,7 +139,7 @@
                     android:drawableLeft="@drawable/your_acc"
                     android:padding="10dp"
                     android:text="Change Password"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
 
                 <ImageView

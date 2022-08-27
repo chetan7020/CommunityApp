@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg1"
     tools:context=".post.WritePostFragment">
 
     <LinearLayout
@@ -17,7 +19,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/allerta"
             android:text="@string/write_a_post"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="35sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -25,11 +27,15 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxStrokeColor="@color/white"
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="@color/white"
                 android:hint="@string/enter_your_header"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -39,6 +45,9 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxStrokeColor="@color/white"
             android:layout_marginTop="20dp">
 
             <AutoCompleteTextView
@@ -46,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
+                android:textColor="@color/white"
                 android:text="@string/choose_department" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,6 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
             android:text="Choose Image"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:textAllCaps="false" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -71,11 +83,15 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxStrokeColor="@color/white"
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:hint="Detailed Description"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -85,6 +101,8 @@
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:text="Create Post"
             android:textAllCaps="false" />
 

@@ -12,5 +12,11 @@
     <color name="colorAccent">#0B655C</color>
     <color name="blue_highlight">#1253FB</color>
     <color name="gray">#FFADAFB1</color>
-    <color name="red">#F80C0C</color>
+    <color name="red">#FFEC7272</color>
+    <color name="cardBg1">#b584fd</color>
+    <color name="cardBg2">#ff9a96</color>
+    <color name="cardBg3">#f3cd40</color>
+    <color name="cardBg4">#75ceff</color>
+    <color name="bg1">#2c3f5d</color>
+
 </resources>
