@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CommunityApp">
         <activity
+            android:name=".logs.ForgetPassActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.AdminActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".SurveyActivity"
             android:exported="false" />

@@ -51,7 +51,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void forgetPass() {
-        makeToast("Yet to build");
+        startActivity(new Intent(SignInActivity.this , ForgetPassActivity.class));
     }
 
 
@@ -78,6 +78,14 @@ public class SignInActivity extends AppCompatActivity {
             }
 
         } else {
+
+            etPass.setErrorEnabled(false);
+            etPass.setError(null);
+
+            etEmail.setErrorEnabled(false);
+            etEmail.setError(null);
+
+
             auth.signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override

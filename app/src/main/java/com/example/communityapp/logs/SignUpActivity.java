@@ -110,6 +110,8 @@ public class SignUpActivity extends AppCompatActivity {
         }else {
             if (createPass.equals(confirmPass)) {
 
+                editTextSettings() ;
+
                 auth.createUserWithEmailAndPassword(email, createPass)
                         .addOnCompleteListener(this, task -> {
                             if (task.isSuccessful()) {
@@ -140,11 +142,29 @@ public class SignUpActivity extends AppCompatActivity {
 
 
             } else {
-
+                editTextSettings();
                 makeToast("Password Mismatched");
             }
         }
     }
+
+    private void editTextSettings() {
+        etFullName.setErrorEnabled(false);
+        etFullName.setError(null);
+
+        etPhoneNumber.setErrorEnabled(false);
+        etPhoneNumber.setError(null);
+
+        etConfirmPass.setErrorEnabled(false);
+        etConfirmPass.setError(null);
+
+        etCreatePass.setErrorEnabled(false);
+        etCreatePass.setError(null);
+
+        etEmail.setErrorEnabled(false);
+        etEmail.setError(null);
+    }
+
 
     private void makeToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();

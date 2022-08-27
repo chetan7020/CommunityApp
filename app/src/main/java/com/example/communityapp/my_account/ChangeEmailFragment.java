@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,7 +26,6 @@ public class ChangeEmailFragment extends Fragment {
     private Button btnChangeEmail ;
     private TextInputLayout etCurrentEmail , etNewEmail , etConfirmNewEmail , etPassword ;
     private FirebaseUser firebaseUser ;
-    private FirebaseAuth firebaseAuth ;
 
     private void initialize() {
         btnChangeEmail = view.findViewById(R.id.btnChangeEmail) ;
@@ -39,7 +35,6 @@ public class ChangeEmailFragment extends Fragment {
         etPassword = view.findViewById(R.id.etPassword) ;
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
-        firebaseAuth = FirebaseAuth.getInstance() ;
 
         etCurrentEmail.getEditText().setText(firebaseUser.getEmail() ) ;
     }
