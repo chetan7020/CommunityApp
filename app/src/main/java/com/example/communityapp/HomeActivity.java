@@ -14,9 +14,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.communityapp.department.* ;
+import com.example.communityapp.my_account.MyAccountFragment;
 import com.example.communityapp.logs.SignInActivity;
 import com.example.communityapp.post.* ;
 import com.google.android.material.navigation.NavigationView;
@@ -87,6 +87,8 @@ public class HomeActivity extends AppCompatActivity {
                 loadFrag(new WritePostFragment());
             } else if (id == R.id.yourPost) {
                 loadFrag(new YourPostFragment());
+            } else if (id == R.id.user) {
+                loadFrag(new MyAccountFragment());
             } else if (id == R.id.logout) {
                 auth.signOut();
                 startActivity(new Intent(HomeActivity.this, SignInActivity.class));

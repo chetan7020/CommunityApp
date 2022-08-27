@@ -6,11 +6,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.communityapp.HomeActivity;
 import com.example.communityapp.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -18,6 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button btnSignUp ;
     private TextInputLayout etFullName, etEmail, etPhoneNumber, etCreatePass, etConfirmPass;
     private FirebaseAuth auth ;
+    private FirebaseFirestore firebaseFirestore ;
 
     private void initialized() {
         tvSignIn = findViewById(R.id.su_tvSignIn) ;
@@ -30,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
         etConfirmPass = findViewById(R.id.etConfirmPass) ;
 
         auth = FirebaseAuth.getInstance() ;
+        firebaseFirestore = FirebaseFirestore.getInstance() ;
     }
 
 
@@ -103,6 +113,16 @@ public class SignUpActivity extends AppCompatActivity {
                 auth.createUserWithEmailAndPassword(email, createPass)
                         .addOnCompleteListener(this, task -> {
                             if (task.isSuccessful()) {
+
+                                Map<String, Object> data = new HashMap<>();
+
+                                data.put("name", fullName);
+                                data.put("phoneNumber", phoneNumber);
+                                data.put("email", email);
+                                data.put("verify", "false");
+
+                                firebaseFirestore.collection("user").add(data) ;
+
                                 makeToast("Successfully Registered");
                                 startActivity(new Intent(SignUpActivity.this , HomeActivity.class));
                             } else {
@@ -116,6 +136,8 @@ public class SignUpActivity extends AppCompatActivity {
                             }
 
                         });
+
+
 
             } else {
 

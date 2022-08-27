@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,8 +37,8 @@ public class WritePostFragment extends Fragment {
     private ImageView ivImagePreview;
     private Button btnImagePreview, btnCreatePost;
     private TextInputLayout etHeader, etDepartment, etDescription;
-    private FirebaseFirestore firebaseFirestore ;
-    private FirebaseUser firebaseUser ;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseUser firebaseUser;
 
     private void initialize() {
         actvDepartment = view.findViewById(R.id.dept_spinner);
@@ -51,8 +50,8 @@ public class WritePostFragment extends Fragment {
         etDepartment = view.findViewById(R.id.etDepartment);
         etDescription = view.findViewById(R.id.etDescription);
 
-        firebaseFirestore = FirebaseFirestore.getInstance() ;
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
     }
 
@@ -96,11 +95,11 @@ public class WritePostFragment extends Fragment {
     }
 
     private void createPost() {
-        String header, department, description , user = "";
+        String header, department, description, user = "";
         header = etHeader.getEditText().getText().toString();
         department = etDepartment.getEditText().getText().toString();
         description = etDescription.getEditText().getText().toString();
-        user = firebaseUser.getEmail() ;
+        user = firebaseUser.getEmail();
 
         if (header.equals("") ||
                 department.equals("Choose Department") ||
@@ -130,28 +129,28 @@ public class WritePostFragment extends Fragment {
         } else {
 
 
-            Map<String , Object> data = new HashMap<>() ;
+            Map<String, Object> data = new HashMap<>();
 
-            data.put("email" , user) ;
-            data.put("header" , header) ;
-            data.put("department" , department) ;
-            data.put("description" , description) ;
+            data.put("email", user);
+            data.put("header", header);
+            data.put("department", department);
+            data.put("description", description);
 
             firebaseFirestore.collection("post")
                     .add(data)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                    makeToast("Post uploaded");
-                    etHeader.getEditText().setText("");
-                    etDescription.getEditText().setText("");
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    makeToast("Failed to upload");
-                }
-            });
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            makeToast("Post uploaded");
+                            etHeader.getEditText().setText("");
+                            etDescription.getEditText().setText("");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            makeToast("Failed to upload");
+                        }
+                    });
 
         }
     }
@@ -166,20 +165,23 @@ public class WritePostFragment extends Fragment {
         intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
         try {
             startActivityForResult(intent, 100);
-        } catch (Exception e){
+        } catch (Exception e) {
             makeToast(e.toString());
         }
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 100) {
-                    Uri uri = data.getData();
-                    if (null != uri) {
-                        ivImagePreview.setImageURI(uri);
-                    }
+
+                Uri uri = data.getData();
+                if (null != uri) {
+                    ivImagePreview.setImageURI(uri);
+                }
+
             }
         }
     }
