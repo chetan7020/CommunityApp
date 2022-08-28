@@ -12,6 +12,7 @@
 
     <ImageView
         android:layout_width="match_parent"
+        app:tint="@color/white"
         android:layout_height="200dp"
         android:contentDescription="@string/dummy"
         android:src="@drawable/logo" />

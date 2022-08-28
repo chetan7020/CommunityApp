@@ -14,7 +14,9 @@
             android:exported="false" />
         <activity
             android:name=".admin.AdminActivity"
-            android:exported="false" />
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".SurveyActivity"
             android:exported="false" />
