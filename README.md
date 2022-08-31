@@ -1,4 +1,4 @@
-# CommunityApp : GPA COnnect
+# CommunityApp : GPA Connect
 
 ![c_1](https://user-images.githubusercontent.com/78204964/187060167-d8dca737-659c-4c31-b05d-5b316e89b1fa.png)
 
