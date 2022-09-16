@@ -60,11 +60,11 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical|right"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/expand" />
+                    android:src="@drawable/greater_than" />
 
             </androidx.cardview.widget.CardView>
 
@@ -88,11 +88,11 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical|right"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/expand" />
+                    android:src="@drawable/greater_than" />
 
             </androidx.cardview.widget.CardView>
 
@@ -117,11 +117,11 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical|right"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/expand" />
+                    android:src="@drawable/greater_than" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,11 +153,11 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical|right"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/expand" />
+                    android:src="@drawable/greater_than" />
 
             </androidx.cardview.widget.CardView>
 

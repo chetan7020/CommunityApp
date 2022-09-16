@@ -16,8 +16,8 @@
             android:id="@+id/linear_layout_highlight_post"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/tvHeader"
@@ -38,5 +38,7 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <include layout="@layout/like_share_comment" />
 
 </LinearLayout>
