@@ -94,7 +94,6 @@ public class AutomobileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String id = String.valueOf(highlightPostView.getId());
-//                Log.d("tag" , id);
                 Bundle bundle = new Bundle();
                 bundle.putString("id", id);
                 DetailedPostFragment fragment = new DetailedPostFragment();

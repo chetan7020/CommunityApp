@@ -49,9 +49,10 @@ public class CivilFragment extends Fragment {
         return view ;
     }
 
-    private void addPost(String header) {
+    private void addPost(String header , String id) {
 
         View highlightPostView = getLayoutInflater().inflate(R.layout.highlight_post_layout , null , false) ;
+        highlightPostView.setId(Integer.parseInt(id));
 
         LinearLayout llHighlightPost = highlightPostView.findViewById(R.id.linear_layout_highlight_post) ;
 
@@ -63,12 +64,12 @@ public class CivilFragment extends Fragment {
         llHighlightPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String header = tvHeader.getText().toString() ;
-                Bundle bundle = new Bundle() ;
-                bundle.putString("header" , header);
-                DetailedPostFragment fragment = new DetailedPostFragment() ;
+                String id = String.valueOf(highlightPostView.getId());
+                Bundle bundle = new Bundle();
+                bundle.putString("id", id);
+                DetailedPostFragment fragment = new DetailedPostFragment();
                 fragment.setArguments(bundle);
-                loadFrag(fragment) ;
+                loadFrag(fragment);
             }
         });
 
@@ -81,7 +82,6 @@ public class CivilFragment extends Fragment {
         fragmentTransaction.replace(R.id.container, fragment) ;
         fragmentTransaction.addToBackStack(null) ;
         fragmentTransaction.commit() ;
-
     }
 
     private void getData() {
@@ -92,7 +92,8 @@ public class CivilFragment extends Fragment {
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                         for (DocumentChange documentChange : value.getDocumentChanges()) {
                             String header = documentChange.getDocument().getData().get("header").toString() ;
-                            addPost(header);
+                            String id = documentChange.getDocument().getData().get("id").toString();
+                            addPost(header, id);
                         }
                     }
                 });
