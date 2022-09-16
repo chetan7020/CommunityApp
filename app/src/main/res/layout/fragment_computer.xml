@@ -20,7 +20,6 @@
             android:fontFamily="@font/allerta"
             android:textSize="40sp" />
 
-
         <LinearLayout
             android:id="@+id/linear_layout_computer_dept"
             android:layout_width="match_parent"

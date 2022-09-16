@@ -40,7 +40,6 @@ public class MyAccountFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore ;
     private String status ;
 
-
     private void initialize() {
         status = "" ;
 

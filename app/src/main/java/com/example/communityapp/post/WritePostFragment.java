@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +67,6 @@ public class WritePostFragment extends Fragment {
 
         initialize();
 
-
         spinnerSettings();
 
         btnCreatePost.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +95,7 @@ public class WritePostFragment extends Fragment {
     }
 
     private void createPost() {
-        String header, department, description, user = "";
+        String header, department, description, user;
         header = etHeader.getEditText().getText().toString();
         department = etDepartment.getEditText().getText().toString();
         description = etDescription.getEditText().getText().toString();
@@ -127,10 +127,13 @@ public class WritePostFragment extends Fragment {
             }
 
         } else {
+            String id = String.valueOf(Integer.parseInt(String.valueOf(System.currentTimeMillis() / 1000)));
 
+            Log.d("id" , id);
 
             Map<String, Object> data = new HashMap<>();
 
+            data.put("id", id);
             data.put("email", user);
             data.put("header", header);
             data.put("department", department);

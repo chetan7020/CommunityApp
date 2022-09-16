@@ -72,14 +72,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/si_tvForgetPass"
+            android:id="@+id/tvForgetPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/antic"
-            android:paddingEnd="10dp"
-            android:text="@string/forget"
+            android:text="Forget?"
             android:textColor="@color/blue_highlight"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -111,7 +109,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/si_tvSignUp"
+                android:id="@+id/tvSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

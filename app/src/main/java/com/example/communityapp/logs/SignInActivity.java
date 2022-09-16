@@ -25,8 +25,8 @@ public class SignInActivity extends AppCompatActivity {
 
     private void initialize() {
         btnSignIn = findViewById(R.id.si_btnSignIn) ;
-        tvForgetPass = findViewById(R.id.si_tvForgetPass) ;
-        tvSignUp = findViewById(R.id.si_tvSignUp) ;
+        tvForgetPass = findViewById(R.id.tvForgetPass) ;
+        tvSignUp = findViewById(R.id.tvSignUp) ;
 
         etEmail = findViewById(R.id.etEmail) ;
         etPass = findViewById(R.id.etPass) ;

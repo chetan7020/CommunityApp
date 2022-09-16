@@ -7,12 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.communityapp.R;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,7 +22,6 @@ public class DetailedPostFragment extends Fragment {
 
     private View view ;
     private TextView tvHeader , tvDescription ;
-    private String header ;
     private FirebaseFirestore firebaseFirestore ;
     private FirebaseUser firebaseUser ;
 
@@ -31,7 +29,7 @@ public class DetailedPostFragment extends Fragment {
         tvHeader = view.findViewById(R.id.tvHeader) ;
         tvDescription = view.findViewById(R.id.tvDescription) ;
 
-        header = "" ;
+        firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
     public DetailedPostFragment() {
@@ -44,18 +42,33 @@ public class DetailedPostFragment extends Fragment {
 
         initialize() ;
 
-        getData() ;
+        getData();
 
         return view ;
-
     }
 
     private void getData() {
+        String id ;
 
-        header = getArguments().getString("header") ;
+        id = getArguments().getString("id");
 
-        tvHeader.setText(header) ;
+        Log.d("id" , id);
 
+        firebaseFirestore.collection("post")
+                .whereEqualTo("id" , id)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        for (DocumentChange documentChange : value.getDocumentChanges()) {
+                            String header = documentChange.getDocument().getData().get("header").toString() ;
+                            String description = documentChange.getDocument().getData().get("description").toString() ;
+
+                            tvHeader.setText(header);
+                            tvDescription.setText(description);
+
+                        }
+                    }
+                });
 
     }
 
