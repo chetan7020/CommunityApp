@@ -23,7 +23,6 @@ public class DetailedPostFragment extends Fragment {
     private View view ;
     private TextView tvHeader , tvDescription ;
     private FirebaseFirestore firebaseFirestore ;
-    private FirebaseUser firebaseUser ;
 
     private void initialize() {
         tvHeader = view.findViewById(R.id.tvHeader) ;

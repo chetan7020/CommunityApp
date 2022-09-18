@@ -49,7 +49,6 @@ public class YourPostFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         view = inflater.inflate(R.layout.fragment_your_post, container, false);
 
         initialize();
@@ -74,7 +73,8 @@ public class YourPostFragment extends Fragment {
                             tvYourPost.setVisibility(View.VISIBLE);
                             for (DocumentChange documentChange : value.getDocumentChanges()) {
                                 String header = documentChange.getDocument().getData().get("header").toString();
-                                addPost(header);
+                                String id = documentChange.getDocument().getData().get("id").toString();
+                                addPost(header, id);
                             }
                         }
                     }
@@ -87,14 +87,22 @@ public class YourPostFragment extends Fragment {
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-
     }
 
-    private void addPost(String header) {
-
+    private void addPost(String header, String id) {
         View highlightPostView = getLayoutInflater().inflate(R.layout.highlight_post_layout, null, false);
 
+        highlightPostView.setId(Integer.parseInt(id));
+
         View delete = getLayoutInflater().inflate(R.layout.delete, null, false);
+
+        LinearLayout llComment = highlightPostView.findViewById(R.id.llComment);
+
+        llComment.setVisibility(View.GONE);
+
+        LinearLayout llLikeShareComment = highlightPostView.findViewById(R.id.llLikeShareComment);
+
+        llLikeShareComment.setVisibility(View.GONE);
 
         LinearLayout llHighlightPost = highlightPostView.findViewById(R.id.linear_layout_highlight_post);
 
@@ -107,7 +115,6 @@ public class YourPostFragment extends Fragment {
         ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                deletePost(header) ;
                 makeToast("Yet to build");
             }
         });
@@ -115,9 +122,9 @@ public class YourPostFragment extends Fragment {
         llHighlightPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String header = tvHeader.getText().toString();
+                String id = String.valueOf(highlightPostView.getId());
                 Bundle bundle = new Bundle();
-                bundle.putString("header", header);
+                bundle.putString("id", id);
                 DetailedPostFragment fragment = new DetailedPostFragment();
                 fragment.setArguments(bundle);
                 loadFrag(fragment);
@@ -127,38 +134,6 @@ public class YourPostFragment extends Fragment {
         linearLayout.addView(highlightPostView);
         linearLayout.addView(delete);
     }
-
-//    private void deletePost(String header) {
-//        firebaseFirestore
-//                .collection("post")
-//                .whereEqualTo("header" , header)
-//                .whereEqualTo("email" , firebaseUser.getEmail())
-//                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if ( task.isSuccessful() && !task.getResult().isEmpty() ){
-//                            DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
-//                            String documentID = documentSnapshot.getId();
-//
-//                            firebaseFirestore
-//                                    .collection("post")
-//                                    .document(documentID)
-//                                    .delete()
-//                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                        @Override
-//                                        public void onSuccess(Void unused) {
-//                                            makeToast("Post Deleted");
-//                                        }
-//                                    }).addOnFailureListener(new OnFailureListener() {
-//                                        @Override
-//                                        public void onFailure(@NonNull Exception e) {
-//                                            makeToast("Failed to Delete");
-//                                        }
-//                                    });
-//                        }
-//                    }
-//                });
-//    }
 
     private void makeToast(String msg) {
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
@@ -176,11 +151,7 @@ public class YourPostFragment extends Fragment {
             }
         });
 
-
         linearLayout.addView(noPostView);
-
     }
-
-
 
 }

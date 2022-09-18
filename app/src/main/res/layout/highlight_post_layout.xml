@@ -39,6 +39,75 @@
 
     </androidx.cardview.widget.CardView>
 
-    <include layout="@layout/like_share_comment" />
+    <LinearLayout
+        android:id="@+id/llLikeShareComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="35dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
+        <!--        <ImageView-->
+        <!--            android:id="@+id/ivLike"-->
+        <!--            android:layout_width="25dp"-->
+        <!--            android:layout_height="25dp"-->
+        <!--            android:src="@drawable/heart"-->
+        <!--            app:tint="@color/white" />-->
+
+        <ImageView
+
+            android:id="@+id/ivComment"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/comment"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/send"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etComment"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".8"
+            android:textColorHint="@color/white"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Comment"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/ivSend"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight=".1"
+            android:src="@drawable/right_arrow"
+            app:tint="@color/white" />
+
+
+    </LinearLayout>
 </LinearLayout>
