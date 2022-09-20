@@ -63,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        loadFrag(new DefaultFragment());
+        loadFrag(new RecentPostFragment());
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
 
@@ -82,7 +82,7 @@ public class HomeActivity extends AppCompatActivity {
             } else if (id == R.id.deptAE) {
                 loadFrag(new AutomobileFragment());
             } else if (id == R.id.defaultHome) {
-                loadFrag(new DefaultFragment());
+                loadFrag(new RecentPostFragment());
             } else if (id == R.id.writePost) {
                 loadFrag(new WritePostFragment());
             } else if (id == R.id.yourPost) {

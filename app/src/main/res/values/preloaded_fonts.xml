@@ -5,5 +5,9 @@
         <item>@font/allerta</item>
         <item>@font/antic</item>
         <item>@font/bungee</item>
+        <item>@font/poppins_bold</item>
+        <item>@font/poppins_light</item>
+        <item>@font/poppins_medium</item>
+        <item>@font/varela_round</item>
     </array>
 </resources>

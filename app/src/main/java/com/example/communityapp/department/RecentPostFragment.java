@@ -22,8 +22,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.communityapp.R;
 import com.example.communityapp.post.DetailedPostFragment;
 import com.example.communityapp.post.WritePostFragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +37,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DefaultFragment extends Fragment {
+public class RecentPostFragment extends Fragment {
 
     private LinearLayout linearLayout;
     private View view;
@@ -54,7 +54,7 @@ public class DefaultFragment extends Fragment {
         tvRecentPost = view.findViewById(R.id.tvRecent);
     }
 
-    public DefaultFragment() {
+    public RecentPostFragment() {
     }
 
     @Override
@@ -64,7 +64,7 @@ public class DefaultFragment extends Fragment {
 
         Log.d("tag" , "onCreate");
 
-        view = inflater.inflate(R.layout.fragment_default, container, false);
+        view = inflater.inflate(R.layout.fragment_recent_post, container, false);
 
         initialize();
 
@@ -157,13 +157,19 @@ public class DefaultFragment extends Fragment {
 
                             firebaseFirestore.collection(id + "_comment")
                                     .add(data)
-                                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
-                                        public void onComplete(@NonNull Task<DocumentReference> task) {
-                                            if (task.isSuccessful()) {
-                                                makeToast("Commented");
-                                                llComment.setVisibility(View.GONE);
-                                            }
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            makeToast("Commented");
+                                            Log.d("tag", "Commented");
+                                            etComment.getEditText().setText("");
+                                            llComment.setVisibility(View.GONE);
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.d("tag", e.toString());
                                         }
                                     });
 

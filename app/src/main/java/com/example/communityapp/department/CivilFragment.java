@@ -127,6 +127,7 @@ public class CivilFragment extends Fragment {
                                         public void onComplete(@NonNull Task<DocumentReference> task) {
                                             if (task.isSuccessful()) {
                                                 makeToast("Commented");
+                                                etComment.getEditText().setText("");
                                                 llComment.setVisibility(View.GONE);
                                             }
                                         }
