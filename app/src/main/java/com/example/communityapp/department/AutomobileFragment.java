@@ -1,5 +1,6 @@
 package com.example.communityapp.department;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -84,8 +85,9 @@ public class AutomobileFragment extends Fragment {
                             tvAutomobile.setVisibility(View.VISIBLE);
                             for (DocumentChange documentChange : value.getDocumentChanges()) {
                                 String header = documentChange.getDocument().getData().get("header").toString();
+                                String description = documentChange.getDocument().getData().get("description").toString();
                                 String id = documentChange.getDocument().getData().get("id").toString();
-                                addPost(header, id);
+                                addPost(header, id, description);
                             }
                         }
 
@@ -118,7 +120,7 @@ public class AutomobileFragment extends Fragment {
         fragmentTransaction.commit();
     }
 
-    private void addPost(String header, String id) {
+    private void addPost(String header, String id, String description) {
         View highlightPostView = getLayoutInflater().inflate(R.layout.highlight_post_layout, null, false);
 
         highlightPostView.setId(Integer.parseInt(id));
@@ -135,7 +137,7 @@ public class AutomobileFragment extends Fragment {
         ivShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeToast("Share");
+                shareText(header, description);
             }
         });
 
@@ -207,6 +209,13 @@ public class AutomobileFragment extends Fragment {
             }
         });
         linearLayout.addView(highlightPostView);
+    }
+
+    private void shareText(String header, String description) {
+        Intent txtIntent = new Intent(android.content.Intent.ACTION_SEND);
+        txtIntent .setType("text/plain");
+        txtIntent .putExtra(android.content.Intent.EXTRA_TEXT, header+"\n\n\n"+description);
+        startActivity(Intent.createChooser(txtIntent ,"Share"));
     }
 
     private void makeToast(String msg) {

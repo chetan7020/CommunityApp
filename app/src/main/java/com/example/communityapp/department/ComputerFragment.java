@@ -1,7 +1,9 @@
 package com.example.communityapp.department;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,24 +74,30 @@ public class ComputerFragment extends Fragment {
     }
 
     private void getData() {
-        firebaseFirestore.collection("post")
-                .whereEqualTo("department", "Computer")
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @RequiresApi(api = Build.VERSION_CODES.N)
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if (String.valueOf(value.getDocuments().stream().count()).equals("0")) {
-                            addNoPostView();
-                        } else {
-                            tvComputer.setVisibility(View.VISIBLE);
-                            for (DocumentChange documentChange : value.getDocumentChanges()) {
-                                String header = documentChange.getDocument().getData().get("header").toString();
-                                String id = documentChange.getDocument().getData().get("id").toString();
-                                addPost(header, id);
+        try {
+            firebaseFirestore.collection("post")
+                    .whereEqualTo("department", "Computer")
+                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                        @RequiresApi(api = Build.VERSION_CODES.N)
+                        @Override
+                        public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                            if (String.valueOf(value.getDocuments().stream().count()).equals("0")) {
+                                addNoPostView();
+                            } else {
+                                tvComputer.setVisibility(View.VISIBLE);
+                                for (DocumentChange documentChange : value.getDocumentChanges()) {
+                                    String id = documentChange.getDocument().getData().get("id").toString();
+                                    String header = documentChange.getDocument().getData().get("header").toString();
+                                    String description = documentChange.getDocument().getData().get("description").toString();
+                                    addPost(header, id, description);
+                                }
                             }
                         }
-                    }
-                });
+                    });
+        } catch (Exception e) {
+            Log.d("exception", e.getMessage());
+        }
+
     }
 
     private void loadFrag(Fragment fragment) {
@@ -101,8 +109,7 @@ public class ComputerFragment extends Fragment {
 
     }
 
-    private void addPost(String header, String id) {
-
+    private void addPost(String header, String id, String description) {
         View highlightPostView = getLayoutInflater().inflate(R.layout.highlight_post_layout, null, false);
 
         highlightPostView.setId(Integer.parseInt(id));
@@ -119,7 +126,7 @@ public class ComputerFragment extends Fragment {
         ivShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeToast("Share");
+                shareText(header, description);
             }
         });
 
@@ -138,6 +145,8 @@ public class ComputerFragment extends Fragment {
 
                         String comment = etComment.getEditText().getText().toString().trim();
 
+                        Log.d("comment" , comment);
+
                         if (comment.equals("")) {
                             etComment.setError("*Required");
 
@@ -150,18 +159,22 @@ public class ComputerFragment extends Fragment {
                             data.put("email", firebaseUser.getEmail());
                             data.put("comment", comment);
 
-                            firebaseFirestore.collection(id + "_comment")
-                                    .add(data)
-                                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<DocumentReference> task) {
-                                            if (task.isSuccessful()) {
-                                                makeToast("Commented");
-                                                etComment.getEditText().setText("");
-                                                llComment.setVisibility(View.GONE);
+                            try {
+                                firebaseFirestore.collection(id + "_comment")
+                                        .add(data)
+                                        .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                if (task.isSuccessful()) {
+                                                    makeToast("Commented");
+                                                    etComment.getEditText().setText("");
+                                                    llComment.setVisibility(View.GONE);
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
+                            } catch (Exception e) {
+                                Log.d("exception", e.getMessage());
+                            }
 
                         }
 
@@ -207,6 +220,13 @@ public class ComputerFragment extends Fragment {
 
         linearLayout.addView(noPostView);
 
+    }
+
+    private void shareText(String header, String description) {
+        Intent txtIntent = new Intent(android.content.Intent.ACTION_SEND);
+        txtIntent .setType("text/plain");
+        txtIntent .putExtra(android.content.Intent.EXTRA_TEXT, header+"\n\n\n"+description);
+        startActivity(Intent.createChooser(txtIntent ,"Share"));
     }
 
     private void makeToast(String msg) {
